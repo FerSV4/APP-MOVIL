@@ -5,14 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,7 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HelloWorldTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    EjemploBox(modifier = Modifier.padding(innerPadding))
+                    EjemploRow(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -33,30 +32,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun EjemploBox(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize()) {
-        Image(
-            painter = painterResource(id = android.R.drawable.ic_menu_gallery),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize()
-        )
+fun EjemploRow(modifier: Modifier = Modifier) {
+    Row(modifier = modifier.fillMaxSize()) {
         Text(
-            text = "Hola mundo",
-            modifier = Modifier.align(Alignment.Center)
+            text = "Hola APP",
+            modifier = Modifier.weight(1f)
         )
         Button(
             onClick = {},
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.weight(1f)
         ) {
-            Text("Click")
+            Text("UCB")
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun EjemploBoxPreview() {
+fun EjemploRowPreview() {
     HelloWorldTheme {
-        EjemploBox()
+        EjemploRow()
     }
 }
